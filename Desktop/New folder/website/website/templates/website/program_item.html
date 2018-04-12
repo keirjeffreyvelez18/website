@@ -1,0 +1,36 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block breadcrumb %}
+<div class="container mt-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/list">All Academic Programs</a></li>
+        <li class="breadcrumb-item"><a href="/program">{{object.program_department}}</a></li>
+        <li class="breadcrumb-item active">{{object.program_name}}</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">{{object.program_name}}</h1>
+    <p class="lead">
+        Department:
+        <a href="/program">{{object.program_department}}</a>
+    </p>
+    <hr>
+    <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+    <hr>
+    <p class="lead">
+        {{object.program_description}}
+    </p>
+    <br>
+    <p>Admission Requirements:</p>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <br><br>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block breadcrumb %}
+<div class="container mt-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/news">News</a></li>
+        <li class="breadcrumb-item active">{{object.news_title}}</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-cascade wider reverse">
+                <div class="view overlay">
+                    <img src="{{ object.image.url }}" class="card-img-top img-fluid">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h3 class="card-title indigo-text"><strong>{{object.title}}</strong></h3>
+                    <p class="card-text">
+                        {{object.contents}}
+                    </p>
+                    <small> Posted by <span class="indigo-text"><strong>{{object.author}}</strong></span> on {{ object.date }} at {{ object.time }}</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <ul class="list-group">
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test</li>
+                <li class="list-group-item">Test</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

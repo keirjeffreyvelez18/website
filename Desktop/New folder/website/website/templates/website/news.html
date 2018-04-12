@@ -1,0 +1,84 @@
+{% extends 'website/base.html' %}
+
+{% load static %}
+
+
+{% block breadcrumb %}
+<div class="container mt-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">News</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+      <div class="col-lg-8">
+      {% for NewsPost in news %}
+      <div class="row mt-2 mb-2 wow fadeIn" data-wow-delay="0.2s">
+          <div class="col-lg-5 col-xl-5 pb-3">
+                <!--Featured image-->
+                <div class="view overlay rounded z-depth-2">
+                    <img src="{{ NewsPost.image.url }}" alt="Sample image for first version of blog listing"
+                        class="img-fluid">
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-xl-7">
+                <!--Excerpt-->
+                <h3 class="mb-4 font-weight-bold dark-grey-text">
+                    <strong>{{NewsPost.title}}</strong>
+                </h3>
+                <p>
+                    {{NewsPost.contents|slice:"0:100"}}...
+                </p>
+                <p>by <strong>{{NewsPost.author}}</strong>, {{NewsPost.date}}</p>
+                <a href="{% url 'news_item' NewsPost.id %}" class="btn btn-primary btn-md mb-3">Read more</a>
+            </div>
+        </div>
+        <hr class="mb-5 mt-5 pb-3">
+      {% endfor %}
+      </div>
+        <div class="col-lg-4">
+            Monthly Archive
+            {% for month in months %}
+                {% ifchanged month.0 %}                                          <!-- Year Generation -->
+                    <span class="list-group-item">{{ month.0 }}</span>
+                {% endifchanged %}
+                    <a class="list-group-item" href="">{{ month.2 }}</a>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-12">
+            {% if news.has_other_pages %}
+                <ul class="pagination justify-content-center">
+                    {% if news.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ news.previous_page_number }}">Previous</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                {% endif %}
+                {% for i in news.paginator.page_range %}
+                    {% if news.number == i %}
+                        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if news.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ news.next_page_number }}">Next</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link" >Next</span></li>
+                {% endif %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

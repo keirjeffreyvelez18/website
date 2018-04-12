@@ -1,0 +1,78 @@
+{% extends 'website/base.html' %}
+
+{% load static %}
+
+{% block breadcrumb %}
+<div class="container mt-4">
+<ol class="breadcrumb">
+  <li class="breadcrumb-item active">Program Departments</li>
+</ol>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="card-deck">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="education">
+                        <div class="card text-white text-center d-flex align-items-center bg-white  py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Education</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="business">
+                        <div class="card text-white text-center d-flex align-items-center bg-white py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Business Management and Administration</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="administration">
+                        <div class="card text-white text-center d-flex align-items-center bg-white-blue py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Public Administration and Governance</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="management">
+                        <div class="card text-white text-center d-flex align-items-center bg-white-blue py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Development Management</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="card-deck">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="computer_studies">
+                        <div class="card text-white text-center d-flex align-items-center bg-white py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Computer Studies</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="criminal_justice">
+                        <div class="card text-white text-center d-flex align-items-center bg-white py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Criminal Justice Education</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="psychology">
+                        <div class="card text-white text-center d-flex align-items-center bg-white py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Psychology and Guidance and Counseling</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <a href="nursing">
+                        <div class="card text-white text-center d-flex align-items-center bg-white py-5 px-4 rounded">
+                            <h5 class="light-blue-text">Nursing</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

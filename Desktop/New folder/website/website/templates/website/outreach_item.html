@@ -1,0 +1,26 @@
+{% extends 'website/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="mt-4">{{object.title}}</h1>
+            <p class="lead">
+                by
+                <a href="/program">{{ object.author }}</a>
+            </p>
+            <hr>
+            <p>Posted on {{ object.date }}</p>
+            <hr>
+            <img class="img-fluid rounded" src="{{ object.image.url }}" alt="">
+            <hr>
+            <p class="lead">{{ object.contents }}</p>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+{% endblock %}

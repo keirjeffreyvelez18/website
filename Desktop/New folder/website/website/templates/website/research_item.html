@@ -1,0 +1,37 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block breadcrumb %}
+<div class="container mt-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/research">Research</a></li>
+        <li class="breadcrumb-item active">{{object.research_title}}</li>
+    </ol>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-cascade wider reverse">
+                <div class="view overlay">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+                <div class="card-body text-center">
+                    <h3 class="card-title indigo-text"><strong>{{object.research_title}}</strong></h3>
+                    <p>Abstract</p>
+                    <p class="card-text">
+                        {{object.research_abstract}}
+                    </p>
+                    <p>Year: </p>
+                    <small> Author: <span class="indigo-text"><strong>{{object.research_author}}</strong></span></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

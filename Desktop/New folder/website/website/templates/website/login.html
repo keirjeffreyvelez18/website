@@ -1,0 +1,25 @@
+{% extends 'website/styles.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <div class="row mt-4 justify-content-center">
+        <div class="col-lg-6">
+            <div class="card mt-4 mx-xl-5 ">
+                <div class="card-body p-5">
+                    <form>
+                        <p class="h4 text-center py-4 blue-text">Content Dashboard</p>
+                        <label for="defaultFormCardNameEx" class="grey-text font-weight-light">Username</label>
+                        <input type="text" id="defaultFormCardNameEx" class="form-control">
+                        <br>
+                        <label for="defaultFormCardEmailEx" class="grey-text font-weight-light">Password</label>
+                        <input type="password" id="defaultFormCardEmailEx" class="form-control">
+                        <div class="text-center py-4 mt-3">
+                            <a href="dashboard" class="btn btn-outline-blue">Login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

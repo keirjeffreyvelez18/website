@@ -1,0 +1,37 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-4 mb-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-header info-color-dark text-white"><h1>First Semester</h1></div>
+                    <div class="card-body">
+                        <ol>
+                            {% for FacultyMember in firstsem %}
+                            <li>{{FacultyMember.faculty_Last_Name}}, {{FacultyMember.faculty_First_Name}} {{FacultyMember.faculty_Middle_Name}}</li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-header info-color-dark text-white"><h1>Second Semester</h1></div>
+                    <div class="card-body">
+                        <ol>
+                            {% for FacultyMember in secondsem %}
+                            <li>{{FacultyMember.faculty_Last_Name}}, {{FacultyMember.faculty_First_Name}} {{FacultyMember.faculty_Middle_Name}}</li>
+                            {% endfor %}
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

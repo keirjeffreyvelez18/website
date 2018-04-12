@@ -1,0 +1,80 @@
+{% extends 'website/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<br>
+    <div class="container">
+
+      <!-- Heading Row -->
+      <!--<div class="row my-4">-->
+
+        <!--<div class="col-lg-8">-->
+          <!--<img class="img-fluid rounded" src="http://placehold.it/900x400" alt="">-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.col-lg-8 &ndash;&gt;-->
+        <!--<div class="col-lg-4">-->
+          <!--<h1>UNO-RECOLETOS Latest Research Title</h1>-->
+          <!--<p>This is a template that is great for small businesses. It doesn't have too much fancy flare to it, but it makes a great use of the standard Bootstrap core components. Feel free to use this template for any project you want!</p>-->
+          <!--<a class="btn btn-primary btn-lg" href="#">Read more</a>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; /.col-md-4 &ndash;&gt;-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.row &ndash;&gt;-->
+
+      <!--&lt;!&ndash; Call to Action Well &ndash;&gt;-->
+      <!--<div class="card text-white bg-secondary my-4 text-center">-->
+        <!--<div class="card-body">-->
+          <!--<p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <!-- Content Row -->
+      <div class="row">
+        {% for research in research_list %}
+          <div class="col-md-4 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h2 class="card-title">{{research.research_title}}</h2>
+                <p class="card-text">
+                  {{research.research_abstract|slice:"0:100"}}...
+                </p>
+                <p>Year: </p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'research_item' research.id %}" class="btn btn-primary">More Info</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+      </div>
+      <!-- /.row -->
+      <div class="row mb-4">
+        <div class="col-md-12">
+            {% if research_list.has_other_pages %}
+                <ul class="pagination justify-content-center">
+                    {% if news.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ research_list.previous_page_number }}">Previous</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                {% endif %}
+                {% for i in research_list.paginator.page_range %}
+                    {% if research_list.number == i %}
+                        <li class="page-item active"><span class="page-link">{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if research_list.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ research_list.next_page_number }}">Next</a></li>
+                    {% else %}
+                    <li class="page-item disabled"><span class="page-link" >Next</span></li>
+                {% endif %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+
+    </div>
+{% endblock %}
